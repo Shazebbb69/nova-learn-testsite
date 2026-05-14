@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    
-
-
-
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -18,15 +14,13 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": [
-    "**/*.ts",      // ← picks up all .ts and .d.ts files at any depth
-    "**/*.tsx",     // ← picks up all .tsx files
+    "**/*.ts",
+    "**/*.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
