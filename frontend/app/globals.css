@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{ color-scheme: light; }
+
+html, body {
+  height: 100%;
+}
+
+body{
+  @apply bg-white text-slate-900 antialiased;
+}
+
+/* Lightweight premium background depth (keep clean + lightweight) */
+#__next, main {
+  min-height: 100%;
+}
+
+/* Subtle focus ring for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(31, 143, 255, 0.35);
+  outline-offset: 2px;
+}
+
+
