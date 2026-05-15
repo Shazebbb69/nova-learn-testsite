@@ -55,7 +55,7 @@ export default function Hero() {
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             
             <Link
-              href="/search"
+              href="/materials"
               className="inline-flex h-16 items-center justify-center rounded-2xl bg-slate-950 px-8 text-lg font-bold text-white shadow-xl transition hover:scale-[1.02]"
             >
               Explore Resources

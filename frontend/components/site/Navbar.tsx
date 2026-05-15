@@ -1,26 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { Users, Menu, X, ChevronDown } from 'lucide-react'
+import { Users, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navItems = [
   {
-    label: 'Material',
-    href: '/materials',
-    dropdown: true
+    label: 'Branches',
+    href: '/branches',
   },
   {
-    label: 'Course',
-    href: '/courses'
+    label: 'Materials',
+    href: '/materials',
   },
   {
     label: 'About Us',
     href: '/about'
-  },
-  {
-    label: 'Blog',
-    href: '/blog'
   }
 ]
 
@@ -28,7 +23,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white">
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-xl">
       
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6">
         
@@ -39,9 +34,7 @@ export default function Navbar() {
         >
           <span className="text-4xl font-black tracking-tight text-slate-950">
             Nova Learn
-            <span className="text-blue-500">
-              .
-            </span>
+            <span className="text-blue-500">.</span>
           </span>
         </Link>
 
@@ -52,16 +45,9 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className="group flex items-center gap-1 text-lg font-semibold text-slate-800 transition hover:text-blue-600"
+              className="text-lg font-semibold text-slate-800 transition hover:text-blue-600"
             >
               {item.label}
-
-              {item.dropdown && (
-                <ChevronDown
-                  size={18}
-                  className="mt-[2px] transition group-hover:translate-y-[1px]"
-                />
-              )}
             </Link>
           ))}
         </nav>
