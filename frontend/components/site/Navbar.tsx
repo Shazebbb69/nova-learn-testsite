@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Users, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 const navItems = [
@@ -15,8 +15,8 @@ const navItems = [
   },
   {
     label: 'About Us',
-    href: '/about'
-  }
+    href: '/about',
+  },
 ]
 
 export default function Navbar() {
@@ -28,10 +28,8 @@ export default function Navbar() {
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6">
         
         {/* LOGO */}
-        <Link
-          href="/"
-          className="flex items-center"
-        >
+        <Link href="/" className="flex items-center">
+          
           <span className="text-4xl font-black tracking-tight text-slate-950">
             Nova Learn
             <span className="text-blue-500">.</span>
@@ -52,16 +50,21 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* RIGHT CTA */}
-        <div className="hidden md:flex">
+        {/* RIGHT SIDE */}
+        <div className="hidden items-center gap-5 md:flex">
           
           <Link
-            href="/community"
-            className="inline-flex items-center gap-3 rounded-2xl border-2 border-blue-500 px-8 py-4 text-lg font-bold text-blue-500 transition hover:bg-blue-50"
+            href="/login"
+            className="text-base font-bold text-slate-700 transition hover:text-blue-600"
           >
-            <Users size={22} />
+            Login
+          </Link>
 
-            Join Community
+          <Link
+            href="/signup"
+            className="inline-flex h-12 items-center justify-center rounded-2xl bg-blue-600 px-6 text-base font-bold text-white transition hover:bg-blue-700"
+          >
+            Sign Up
           </Link>
         </div>
 
@@ -92,12 +95,17 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="/community"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl border-2 border-blue-500 px-4 py-3 text-base font-bold text-blue-500"
+              href="/login"
+              className="rounded-xl px-4 py-3 text-base font-bold text-slate-800 transition hover:bg-slate-50"
             >
-              <Users size={18} />
+              Login
+            </Link>
 
-              Join Community
+            <Link
+              href="/signup"
+              className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-base font-bold text-white"
+            >
+              Sign Up
             </Link>
           </div>
         </div>

@@ -4,78 +4,97 @@ const branches = [
   {
     title: 'Aerospace',
     icon: '🚀',
+    slug: 'aerospace-engineering',
   },
   {
     title: 'Civil',
     icon: '🏗️',
+    slug: 'civil-engineering',
   },
   {
     title: 'Electrical & Electronics',
     icon: '⚡',
+    slug: 'electrical-electronics-engineering',
   },
   {
     title: 'Electronics & Communication',
     icon: '📡',
+    slug: 'electronics-communication-engineering',
   },
   {
     title: 'Mechanical',
     icon: '⚙️',
+    slug: 'mechanical-engineering',
   },
   {
     title: 'Production',
     icon: '🏭',
+    slug: 'production-engineering',
   },
   {
     title: 'Biotechnology',
     icon: '🧬',
+    slug: 'biotechnology',
   },
   {
     title: 'AI & Data Science',
     icon: '🤖',
+    slug: 'ai-data-science',
   },
   {
     title: 'AI & ML',
     icon: '🧠',
+    slug: 'ai-ml',
   },
   {
     title: 'Blockchain Technologies',
     icon: '⛓️',
+    slug: 'blockchain-technologies',
   },
   {
     title: 'Cloud Computing',
     icon: '☁️',
+    slug: 'cloud-computing',
   },
   {
     title: 'DevOps',
     icon: '🛠️',
+    slug: 'devops',
   },
   {
     title: 'Full Stack Development',
     icon: '💻',
+    slug: 'full-stack-development',
   },
   {
     title: 'IoT',
     icon: '📶',
+    slug: 'iot',
   },
   {
     title: 'AI & Future Technologies',
     icon: '✨',
+    slug: 'ai-future-technologies',
   },
   {
     title: 'Software Product Engineering',
     icon: '📦',
+    slug: 'software-product-engineering',
   },
   {
     title: 'Cyber Security',
     icon: '🔐',
+    slug: 'cyber-security',
   },
   {
     title: 'AR / VR',
     icon: '🥽',
+    slug: 'ar-vr',
   },
   {
     title: 'Data Analytics',
     icon: '📊',
+    slug: 'data-analytics',
   },
 ]
 
@@ -106,8 +125,9 @@ export default function BranchesPage() {
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           
           {branches.map((branch) => (
-            <div
-              key={branch.title}
+            <Link
+              key={branch.slug}
+              href={`/materials/${branch.slug}`}
               className="group rounded-[2rem] border border-slate-200 bg-white p-8 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:border-blue-200 hover:shadow-2xl"
             >
               
@@ -117,7 +137,7 @@ export default function BranchesPage() {
               </div>
 
               {/* TITLE */}
-              <h2 className="mt-7 text-3xl font-black tracking-tight text-slate-950">
+              <h2 className="mt-7 text-3xl font-black tracking-tight text-slate-950 transition group-hover:text-blue-600">
                 {branch.title}
               </h2>
 
@@ -128,13 +148,10 @@ export default function BranchesPage() {
               </p>
 
               {/* BUTTON */}
-              <Link
-                href="/materials"
-                className="mt-8 inline-flex h-12 items-center justify-center rounded-2xl bg-blue-600 px-7 text-sm font-bold text-white transition hover:bg-blue-700"
-              >
+              <div className="mt-8 inline-flex h-12 items-center justify-center rounded-2xl bg-blue-600 px-7 text-sm font-bold text-white transition hover:bg-blue-700">
                 Explore Materials
-              </Link>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
       </section>

@@ -1,25 +1,39 @@
-import 'dotenv/config'
-import express from 'express'
-import cors from 'cors'
-import helmet from 'helmet'
-import morgan from 'morgan'
+import express, { Request, Response } from 'express'
+import dotenv from 'dotenv'
+import { supabase } from './config/supabase'
 
-import { env } from './config/env.js'
-import { router } from './routes/index.js'
+dotenv.config()
 
 const app = express()
 
-app.use(helmet())
-app.use(cors({ origin: true, credentials: true }))
-app.use(express.json({ limit: '1mb' }))
-app.use(express.urlencoded({ extended: false }))
-app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'))
+app.use(express.json())
 
-app.get('/health', (_, res) => res.json({ ok: true }))
-
-app.use('/api', router)
-
-app.listen(env.PORT, () => {
-  console.log(`Nova Learn API listening on http://localhost:${env.PORT}`)
+// HOME ROUTE
+app.get('/', (req: Request, res: Response) => {
+  res.send('Nova Learn Backend Running')
 })
 
+// GET ALL RESOURCES
+app.get('/resources', async (req: Request, res: Response) => {
+  const { data, error } = await supabase
+    .from('resources')
+    .select('*')
+
+  if (error) {
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    })
+  }
+
+  return res.json({
+    success: true,
+    data,
+  })
+})
+
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
